@@ -1,0 +1,20 @@
+<template>
+    <div class="slds-grid" style="background: white;">
+        <div class="slds-col slds-size_6-of-12">
+            <c-calendar-date ondateselected={onDateSelected}></c-calendar-date>
+        </div>
+        <div class="slds-col slds-size_6-of-12">
+            <c-calendar-time ontimeselected={onTimeSelected}></c-calendar-time>
+        </div>
+    </div>
+
+    <div class="slds-pill_container">
+        <ul>
+            <template for:each={displayedScheduledEventsThisSession} for:item="scheduledEvent">
+                <li key={scheduledEvent} class="slds-listbox-item">
+                    <lightning-pill label={scheduledEvent} onremove={onSelectedTimeRemoved}></lightning-pill>
+                </li>
+            </template>
+        </ul>
+    </div>
+</template>

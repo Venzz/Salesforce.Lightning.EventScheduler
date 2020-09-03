@@ -1,0 +1,31 @@
+<template>
+    <div style="position: relative;">
+        <template for:each={timeSlots} for:item="timeSlot">
+            <div key={timeSlot.value} class="slds-grid border" style="border-width: 0px 0px 1px 1px;">
+                <div class="slds-col slds-size_1-of-6 timeslot border">
+                    {timeSlot.label}
+                </div>
+                <div class="slds-col slds-size_5-of-6 clickable" onclick={onTimeSlotClicked}>
+                    <div class="slds-grid" style="height: 100%">
+                        <template for:each={timeSlot.test} for:item="rr">
+                            <div key={rr} hour={timeSlot.value} timeslot={rr} class="slds-col slds-size_1-of-4" style="background: rgb(250,128,114, 0.2)">
+                                ss
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <c-dialog header="Select Time Slot" onaction={onDialogAction}>
+            <lightning-combobox
+                variant="label-hidden"
+                label="Time Slot"
+                value={timeSlotDialogValue}
+                options={timeSlotDialogOptions}>
+            </lightning-combobox>
+        </c-dialog>
+        <template if:true={locked}>
+            <div class="locked_overlay"></div>
+        </template>
+    </div>
+</template>

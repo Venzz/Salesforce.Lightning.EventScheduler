@@ -1,0 +1,25 @@
+table {
+    width: 100%;
+    height: 100%;
+}
+thead {
+    border-bottom: rgba(128, 128, 128, 0.2);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+.cell {
+	padding: 3%;
+	font-size: 1.3em;
+    min-width: 40px;
+	text-align: center;
+    user-select: none;
+    border-radius: 50%;
+}
+.selected {
+    background: dodgerblue;
+    color: white;
+}
+.clickable:hover {
+    cursor: pointer;
+    background-color: rgba(128, 128, 128, 0.2);
+}

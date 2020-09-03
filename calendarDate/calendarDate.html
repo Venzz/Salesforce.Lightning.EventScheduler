@@ -1,0 +1,40 @@
+<template>
+    <div>
+        <div class="slds-grid" style="font-size: 1.3em; text-align: center; padding: 3%;">
+            <div class="slds-col slds-size_1-of-12">
+                <lightning-icon class="clickable" icon-name="utility:chevronleft" size="small" onclick={onPreviousMonthClicked}></lightning-icon>
+            </div>
+            <div class="slds-col">
+                <span>{currentMonthTitle}</span>
+            </div>
+            <div class="slds-col slds-size_1-of-12">
+                <lightning-icon class="clickable" icon-name="utility:chevronright" size="small" onclick={onNextMonthClicked}></lightning-icon>
+            </div>
+        </div>
+        <div>
+            <table>
+                <thead>
+                    <template for:each={weekDays} for:item="dayOfWeek">
+                        <th key={dayOfWeek} class="cell">{dayOfWeek}</th>
+                    </template>
+                </thead>
+                <tbody>
+                    <template for:each={dayMatrix} for:item="week">
+                        <tr key={week.id}>
+                            <template for:each={week.days} for:item="day">
+                                <template if:true={day.value}>
+                                    <td class="cell clickable" key={day.id} onclick={onDayClicked}>
+                                        {day.value}
+                                    </td>
+                                </template>
+                                <template if:false={day.value}>
+                                    <td class="cell" key={day.id}></td>
+                                </template>
+                            </template>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>
